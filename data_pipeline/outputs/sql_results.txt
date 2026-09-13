@@ -1,0 +1,147 @@
+============================================================
+QUERY 1 - Books costing more than £30
+============================================================
+SQL:
+SELECT title, price_gbp
+        FROM books
+        WHERE price_gbp > 30
+
+RESULT:
+Empty DataFrame
+Columns: [title, price_gbp]
+Index: []
+
+
+============================================================
+QUERY 2 - Most expensive books
+============================================================
+SQL:
+SELECT title, price_gbp
+        FROM books
+        ORDER BY price_gbp DESC
+        LIMIT 10
+
+RESULT:
+                                                                                         title price_gbp
+                                                                          A Light in the Attic      None
+                                                                            Tipping the Velvet      None
+                                                                                    Soumission      None
+                                                                                 Sharp Objects      None
+                                                         Sapiens: A Brief History of Humankind      None
+                                                                               The Requiem Red      None
+                                            The Dirty Little Secrets of Getting Your Dream Job      None
+       The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull      None
+The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics      None
+                                                                               The Black Maria      None
+
+
+============================================================
+QUERY 3 - Distinct ratings
+============================================================
+SQL:
+SELECT DISTINCT rating
+        FROM books
+        ORDER BY rating
+
+RESULT:
+ rating
+      1
+      2
+      3
+      4
+      5
+
+
+============================================================
+QUERY 4 - Books rated 4 or 5
+============================================================
+SQL:
+SELECT title, rating
+        FROM books
+        WHERE rating IN (4, 5)
+        ORDER BY rating DESC
+
+RESULT:
+                                                                                                                                                 title  rating
+                                                                                                                 Sapiens: A Brief History of Humankind       5
+                                                                                                                                           Set Me Free       5
+                                                                                               Scott Pilgrim's Precious Little Life (Scott Pilgrim #1)       5
+                                                                                                                             Rip it Up and Start Again       5
+                                                                                                                            Chase Me (Paris Nights #2)       5
+                                                                                                                                            Black Dust       5
+                                                                                               Worlds Elsewhere: Journeys Around Shakespeareâs Globe       5
+                                                                                            The Four Agreements: A Practical Guide to Personal Freedom       5
+                                                                                                                                     The Elephant Tree       5
+                                                                                                                                        Sophie's World       5
+                                                                                                                           Private Paris (Private #10)       5
+                                                                                    #HigherSelfie: Wake Up Your Life. Free Your Soul. Find Your Tribe.       5
+                                                                                                                          We Love You, Charlie Freeman       5
+                                                                                                                                                Thirst       5
+                                                                    The Inefficiency Assassin: Time Management Tactics for Working Smarter, Not Longer       5
+                                                                                   The Activist's Tao Te Ching: Ancient Advice for a Modern Revolution       5
+                                                                     Princess Jellyfish 2-in-1 Omnibus, Vol. 01 (Princess Jellyfish 2-in-1 Omnibus #1)       5
+                                                                                                      Princess Between Worlds (Wide-Awake Princess #5)       5
+                                                                                                                                                  Join       5
+                                                                                                                                         Sharp Objects       4
+                                                                                                    The Dirty Little Secrets of Getting Your Dream Job       4
+                                                        The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics       4
+                                                                                                                                 Shakespeare's Sonnets       4
+                                                                                                                                        Wall and Piece       4
+                                                                                                                                   Behind Closed Doors       4
+                                                                                                               Untitled Collection: Sabbath Poems 2014       4
+                                             Unseen City: The Majesty of Pigeons, the Discreet Charm of Snails & Other Wonders of the Urban Wilderness       4
+                                                                                                                                       This One Summer       4
+                                                                                                                                   The Past Never Ends       4
+                                                                                                              The Nameless City (The Nameless City #1)       4
+                                                                                             The Most Perfect Thing: Inside (and Outside) a Bird's Egg       4
+The Mindfulness and Acceptance Workbook for Anxiety: A Guide to Breaking Free from Anxiety, Phobias, and Worry Using Acceptance and Commitment Therapy       4
+                                                                                                          The Death of Humanity: and the Case for Life       4
+                                                                        Spark Joy: An Illustrated Master Class on the Art of Organizing and Tidying Up       4
+                                                                                                Outcast, Vol. 1: A Darkness Surrounds Him (Outcast #1)       4
+                                                                   Mama Tried: Traditional Italian Cooking for the Screwed, Crude, Vegan, and Tattooed       4
+                                                                                                             In the Country We Love: My Family Divided       4
+
+
+============================================================
+QUERY 5 - Books between £20 and £40
+============================================================
+SQL:
+SELECT title, price_gbp
+        FROM books
+        WHERE price_gbp BETWEEN 20 AND 40
+        ORDER BY price_gbp
+
+RESULT:
+Empty DataFrame
+Columns: [title, price_gbp]
+Index: []
+
+
+============================================================
+QUERY 6 - Books with their categories
+============================================================
+SQL:
+SELECT
+            books.title,
+            books.price_gbp,
+            books.rating,
+            categories.category_name
+        FROM books
+        JOIN categories
+            ON books.category_id = categories.category_id
+        ORDER BY books.price_gbp DESC
+        LIMIT 10
+
+RESULT:
+                                                                                         title price_gbp  rating      category_name
+                                                                          A Light in the Attic      None       3             Poetry
+                                                                            Tipping the Velvet      None       1 Historical Fiction
+                                                                                    Soumission      None       1            Fiction
+                                                                                 Sharp Objects      None       4            Mystery
+                                                         Sapiens: A Brief History of Humankind      None       5            History
+                                                                               The Requiem Red      None       1        Young Adult
+                                            The Dirty Little Secrets of Getting Your Dream Job      None       4           Business
+       The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull      None       3            Default
+The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics      None       4            Default
+                                                                               The Black Maria      None       1             Poetry
+
