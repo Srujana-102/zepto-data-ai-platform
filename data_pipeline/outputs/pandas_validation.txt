@@ -1,0 +1,49 @@
+======================================================================
+SQL RESULT 1 - pd.read_sql()
+======================================================================
+                                                                                                                          title  price_gbp
+                                                                                   The Death of Humanity: and the Case for Life      58.11
+                                                                                                 Slow States of Collapse: Poems      57.31
+                                             Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991      57.25
+                                                                                                            The Past Never Ends      56.50
+The Pioneer Woman Cooks: Dinnertime: Comfort Classics, Freezer Food, 16-Minute Meals, and Other Delicious Ways to Solve Supper!      56.41
+                                                                                                              Masks and Shadows      56.40
+                                                                                                The Secret of Dreadwillow Carse      56.13
+                                                                 The Electric Pencil: Drawings from Inside State Hospital No. 3      56.06
+                                                                                                  Birdsong: A Story in Pictures      54.64
+                                                                                          Sapiens: A Brief History of Humankind      54.23
+
+======================================================================
+SQL JOIN RESULT - pd.read_sql()
+======================================================================
+                                                                                                                          title  price_gbp  rating  category_name
+                                                                                   The Death of Humanity: and the Case for Life      58.11       4     Philosophy
+                                                                                                 Slow States of Collapse: Poems      57.31       3         Poetry
+                                             Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991      57.25       3          Music
+                                                                                                            The Past Never Ends      56.50       4        Mystery
+The Pioneer Woman Cooks: Dinnertime: Comfort Classics, Freezer Food, 16-Minute Meals, and Other Delicious Ways to Solve Supper!      56.41       1 Food and Drink
+                                                                                                              Masks and Shadows      56.40       2        Fantasy
+                                                                                                The Secret of Dreadwillow Carse      56.13       1      Childrens
+                                                                 The Electric Pencil: Drawings from Inside State Hospital No. 3      56.06       1     Nonfiction
+                                                                                                  Birdsong: A Story in Pictures      54.64       3      Childrens
+                                                                                          Sapiens: A Brief History of Humankind      54.23       5        History
+
+======================================================================
+PANDAS JOIN RESULT - pd.merge()
+======================================================================
+                                                                                                                          title  price_gbp  rating  category_name
+                                                                                   The Death of Humanity: and the Case for Life      58.11       4     Philosophy
+                                                                                                 Slow States of Collapse: Poems      57.31       3         Poetry
+                                             Our Band Could Be Your Life: Scenes from the American Indie Underground, 1981-1991      57.25       3          Music
+                                                                                                            The Past Never Ends      56.50       4        Mystery
+The Pioneer Woman Cooks: Dinnertime: Comfort Classics, Freezer Food, 16-Minute Meals, and Other Delicious Ways to Solve Supper!      56.41       1 Food and Drink
+                                                                                                              Masks and Shadows      56.40       2        Fantasy
+                                                                                                The Secret of Dreadwillow Carse      56.13       1      Childrens
+                                                                 The Electric Pencil: Drawings from Inside State Hospital No. 3      56.06       1     Nonfiction
+                                                                                                  Birdsong: A Story in Pictures      54.64       3      Childrens
+                                                                                          Sapiens: A Brief History of Humankind      54.23       5        History
+
+======================================================================
+VALIDATION
+======================================================================
+SQL JOIN and pandas merge match: True
